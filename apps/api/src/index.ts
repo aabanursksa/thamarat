@@ -1,5 +1,5 @@
 import "dotenv/config";
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import logger from "./lib/logger.js";
 import { errorHandler } from "./middleware/error.js";
@@ -19,6 +19,10 @@ app.use(express.json());
 app.use((req, _res, next) => {
   logger.info({ method: req.method, url: req.url }, "Request");
   next();
+});
+
+app.get("/", (_req: Request, res: Response) => {
+  res.json({ status: "ok", name: "Restaurant API", version: "1.0.0" });
 });
 
 app.use("/api/auth", authRoutes);
