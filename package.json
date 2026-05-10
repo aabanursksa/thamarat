@@ -1,0 +1,15 @@
+{
+  "name": "restaurant-app",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/api & npm run dev --workspace=apps/admin & npm run dev --workspace=apps/client",
+    "dev:api": "npm run dev --workspace=apps/api",
+    "dev:admin": "npm run dev --workspace=apps/admin",
+    "dev:client": "npm run dev --workspace=apps/client",
+    "build": "npm run build --workspace=packages/shared && npm run build --workspace=apps/api && npm run build --workspace=apps/admin && npm run build --workspace=apps/client"
+  }
+}
