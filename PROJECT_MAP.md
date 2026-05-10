@@ -10,7 +10,7 @@
 | Language | TypeScript | 6.0.3 | strict mode |
 | Backend Framework | Express | 5.2.1 | async error handling via wrapper |
 | ORM | Prisma | 7.8.0 | PostgreSQL dialect |
-| Database | PostgreSQL | 16+ | via Docker or cloud |
+| Database | SQLite (dev) / PostgreSQL (prod) | — | SQLite for local, swap to PostgreSQL for production |
 | Validation | Zod | 4.4.3 | shared schemas package |
 | Frontend Build | Vite | 8.0.11 | SPA mode + @vitejs/plugin-react |
 | CSS | TailwindCSS | 4.3.0 | via @tailwindcss/vite plugin |
@@ -211,15 +211,12 @@ Storage  : stdout only (no file rotation — handled by Docker/infra)
 
 | Item | Status | Note |
 |---|---|---|
-| PostgreSQL (Docker) | PENDING | User needs to run `docker compose up -d` |
-| Prisma migrate | PENDING | Run `npx prisma migrate dev` after DB is up |
-| Seed data script | DONE | `prisma/seed.ts` — admin user, 3 categories, 6 items, 8 tables |
 | QR code generation | PENDING | For table labels (low priority) |
+| PostgreSQL for production | PENDING | Swap SQLite → PostgreSQL + Docker Compose |
 | Email notifications | EXCLUDED | Not requested |
 | Payment integration | EXCLUDED | Not requested (MVP scope) |
 | Delivery / takeaway | EXCLUDED | Not requested |
 | Multi-language (i18n) | EXCLUDED | Not requested |
-| Admin route nesting | VERIFIED | Layout uses `<Outlet/>` with protected route wrapper — type-checked + built |
 
 ## [MILESTONES — Verifiable Goals]
 
